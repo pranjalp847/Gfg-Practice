@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n;
+	    cin >> n;
+	    int a[n];
+	    unordered_map<int,int> m;
+	    for(int i=0;i<n;i++)
+	    {
+	        cin >> a[i];
+	    }
+	    sort(a,a+n);
+	    for(int i=0;i<n;i++)
+	    {
+	        m[a[i]]++;
+	    }
+	    int temp;
+	    for(int i=0;i<n;i++)
+	    {
+	        for(int j=i+1;j<n;j++)
+	        {
+	            if(m[a[i]]<m[a[j]])
+	            {
+	                temp=a[i];
+	                a[i]=a[j];
+	                a[j]=temp;
+	            }
+	            if(m[a[i]]==m[a[j]]==1)
+	            {
+	                if(a[i]>a[j] && i<j)
+	                {
+	                    temp=a[i];
+	                    a[i]=a[j];
+	                    a[j]=temp;
+	                }
+	            }
+	        }
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        cout << a[i] << " ";
+	    }
+	    cout << endl;
+	    
+	}
+	return 0;
+}
