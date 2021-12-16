@@ -1,0 +1,64 @@
+// { Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+ // } Driver Code Ends
+/* The function returns 1 if
+IP string is valid else return 0
+You are required to complete this method */
+class Solution {
+    public:
+        int isValid(string s) 
+        {
+            int sum=0,x;
+            vector<int> v;
+            for(int i=0;i<s.length();i++)
+            {
+                if(s[i]=='.')
+                {
+                    sum++;
+                }
+            }
+            int sum1=0;
+            for(int i=0;i<s.length();i++)
+            {
+                sum1++;
+                if(s[i]=='.')
+                {
+                    v.push_back(sum1-1);
+                    sum1=0;
+                }
+            }
+            v.push_back(sum1);
+            if(sum!=3)
+            {
+                return 0;
+            }
+            int k=0;
+            for(int i=0;i<s.length();i++)
+            {
+               while(j<v[k])
+               {
+                   x=x+s[i]*pow(10,v[k]-1);
+               }
+            }
+            
+          return 1;
+        }
+};
+
+// { Driver Code Starts.
+
+int main() {
+    // your code goes here
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        Solution ob;
+        cout << ob.isValid(s) << endl;
+    }
+    return 0;
+}  // } Driver Code Ends
