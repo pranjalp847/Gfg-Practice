@@ -1,0 +1,74 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+ 
+
+ // } Driver Code Ends
+class Solution{
+  public:
+    /*You are required to complete below function */
+    string multiplyStrings(string s1, string s2) {
+      string s;
+      int x;
+      char s3[s1.length()];
+      char s4[s2.length()];
+      for(int i=0;i<s1.length();i++)
+      {
+          s3[i]=s1[i];
+      }
+      for(int i=0;i<s2.length();i++)
+      {
+          s4[i]=s2[i];
+      }
+      int val1 = atoi(s3);
+      int val2 = atoi(s4);
+      
+      if(val1==0 || val2==0)
+      {
+          return "0";
+      }
+      
+      x = val1*val2;
+     // cout << x << endl;
+      int sum=0,a[10],i=0,b[10],sum1=0,sum3=0;
+      while(x!=0)
+      {
+          a[i]=x%10;
+          x=x/10;
+          i++;
+          sum++;
+      }
+      char s5[sum];
+      sum1=sum-1;
+      for(int i=0;i<sum;i++)
+      {
+         b[sum1-i]=a[i];
+      }
+        //cout << sum << endl;
+      for(int i=0;i<sum;i++)
+      {
+          s5[i]=(char)(48+b[i]);
+      }
+      //cout << sum;
+      return s5;
+    }
+    
+
+};
+
+// { Driver Code Starts.
+ 
+int main() {
+     
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    	string a;
+    	string b;
+    	cin>>a>>b;
+    	Solution obj;
+    	cout<<obj.multiplyStrings(a,b)<<endl;
+    }
+     
+}  // } Driver Code Ends
